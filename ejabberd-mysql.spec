@@ -8,6 +8,7 @@ Version:	0
 Release:	0.%{_snap}.1
 License:	GPL
 Group:		Applications/Communications
+# get it from https://svn.process-one.net/ejabberd-modules/mysql/trunk/src/ and drop onto distfiles
 Source0:	%{name}.tar.gz
 # Source0-md5:	3f3b5c59ebb5a807ec2d6c5ec31e795b
 URL:		http://ejabberd.jabber.ru/
