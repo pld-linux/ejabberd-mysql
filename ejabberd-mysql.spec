@@ -15,7 +15,6 @@ URL:		http://ejabberd.jabber.ru/
 BuildRequires:	erlang >= R9C
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	ejabberd
-Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
