@@ -4,21 +4,36 @@
 #
 %define		_snap	20070926r390
 
+%define	realname	ejabberd-mysql
+%define	_alt_name	%{nil}
+
+%if %{with logdb}
+%define	_alt_name	-logdb
+%endif
+
 Summary:	Ejabberd's native MySQL drivers
 Summary(pl.UTF-8):	Natywne sterowniki do MySQL-a dla demona ejabberd
-Name:		ejabberd-mysql
+Name:		%{realname}%{_alt_name}
 Version:	0
 Release:	1.%{_snap}.0
 License:	GPL
 Group:		Applications/Communications
 # get it from https://svn.process-one.net/ejabberd-modules/mysql/trunk/src/ and drop onto distfiles
-Source0:	%{name}.tar.gz
+Source0:	%{realname}.tar.gz
 # Source0-md5:	3f3b5c59ebb5a807ec2d6c5ec31e795b
-Patch0:		%{name}-logdb_mysql5.patch
+Patch0:		%{realname}-logdb_mysql5.patch
 URL:		http://ejabberd.jabber.ru/
 BuildRequires:	erlang >= R9C
 BuildRequires:	rpmbuild(macros) >= 1.268
+%if %{with logdb}
+Requires:	ejabberd-logdb
+Obsoletes:	ejabberd-mysql
+Conflicts:	ejabberd-mysql
+%else
 Requires:	ejabberd
+Obsoletes:	ejabberd-mysql-logdb
+Conflicts:	ejabberd-mysql-logdb
+%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -28,7 +43,7 @@ Ejabberds native MySQL drivers.
 Natywne sterowniki do MySQL-a dla demona ejabberd.
 
 %prep
-%setup -q -n %{name}
+%setup -q -n %{realname}
 %if %{with logdb}
 %patch0 -p0
 %endif
