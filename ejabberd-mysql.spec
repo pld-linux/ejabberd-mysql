@@ -1,10 +1,11 @@
-
+#
+# Conditional build:
 %bcond_with	logdb	# server-side message logging support for mysql5 driver
-
+#
 %define		_snap	20070926r390
 
-Summary:	Ejabberds native MySQL drivers
-Summary(pl.UTF-8):	Natywne sterowniki do MySQL dla ejabberda
+Summary:	Ejabberd's native MySQL drivers
+Summary(pl.UTF-8):	Natywne sterowniki do MySQL-a dla demona ejabberd
 Name:		ejabberd-mysql
 Version:	0
 Release:	1.%{_snap}.0
@@ -24,7 +25,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Ejabberds native MySQL drivers.
 
 %description -l pl.UTF-8
-Natywne sterowniki do MySQL dla ejabberda.
+Natywne sterowniki do MySQL-a dla demona ejabberd.
 
 %prep
 %setup -q -n %{name}
