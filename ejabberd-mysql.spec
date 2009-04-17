@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	logdb	# server-side message logging support for mysql5 driver
+%bcond_without	logdb	# server-side message logging support for mysql5 driver
 #
 %define		_snap	20090401r931
 
@@ -10,7 +10,7 @@ Summary:	Ejabberd's native MySQL drivers
 Summary(pl.UTF-8):	Natywne sterowniki do MySQL-a dla demona ejabberd
 Name:		%{realname}
 Version:	0
-Release:	1.%{_snap}.0
+Release:	1.%{_snap}.1
 License:	GPL
 Group:		Applications/Communications
 # get it from https://svn.process-one.net/ejabberd-modules/mysql/trunk/src/ and drop onto distfiles
